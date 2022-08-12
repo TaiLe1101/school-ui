@@ -9,7 +9,7 @@ function Header() {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('content')}>
-        <Button to="/login" content="Login"></Button>
+        <Button to="/login">Login</Button>
       </div>
     </div>
   );

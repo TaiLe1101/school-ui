@@ -5,7 +5,10 @@ const cx = classNames.bind(styles);
 function AuthLayout({ children }) {
   return (
     <div className={cx('wrapper')}>
-      <div className={cx('content')}>{children}</div>
+      <div className={cx('content')}>
+        <h1 className={cx('title')}>Welcome</h1>
+        {children}
+      </div>
     </div>
   );
 }
