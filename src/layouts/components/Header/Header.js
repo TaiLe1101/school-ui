@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 function Header() {
   return (
-    <div className={cx('wrapper')}>
+     <div className={cx('wrapper')}>
       <div className={cx('content')}>
         <Button to="/login">Login</Button>
       </div>
