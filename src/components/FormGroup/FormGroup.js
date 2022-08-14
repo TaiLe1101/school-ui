@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './FormGroup.module.scss';
 const cx = classNames.bind(styles);
 
-function FormGroup({ placeholder, name, title, type = 'text' }) {
+function FormGroup({ placeholder, name, title, type = 'text', onChange }) {
   return (
     <div className={cx('wrapper')}>
       <label className={cx('title')} htmlFor={name}>
@@ -14,6 +14,7 @@ function FormGroup({ placeholder, name, title, type = 'text' }) {
           type={type}
           placeholder={placeholder}
           name={name}
+          onChange={onChange}
         />
       </div>
     </div>
