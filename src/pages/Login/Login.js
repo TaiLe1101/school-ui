@@ -11,9 +11,14 @@ const cx = classNames.bind(styles);
 function Login() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [isValid, setIsValid] = useState(false);
 
   const handleInputUserName = (e) => {
     setUserName(e.target.value);
+    if (userName.trim().length > 0) {
+      setIsValid(false);
+    } else {
+    }
   };
 
   const handleInputPassword = (e) => {
@@ -21,10 +26,8 @@ function Login() {
   };
   const handleLogin = (e) => {
     e.preventDefault();
-    const newUser = {
-      userName,
-      password,
-    };
+    if (userName.trim().length === 0 || password.trim().length === 0) {
+    }
   };
   return (
     <div className={cx('wrapper')}>
@@ -34,6 +37,8 @@ function Login() {
           placeholder="Tên Đăng Nhập"
           title={'Tài khoản'}
           onChange={handleInputUserName}
+          mesage="Tài khoản phải có ít nhất 6 ký tự"
+          valid={isValid && true}
         ></FormGroup>
         <FormGroup
           type={'password'}
@@ -41,6 +46,7 @@ function Login() {
           placeholder="Mật khẩu"
           title={'Mật khẩu'}
           onChange={handleInputPassword}
+          mesage="Mật khẩu phải có ít nhất 6 ký tự"
         ></FormGroup>
         <Button form className={cx('btn')}>
           Đăng nhập
