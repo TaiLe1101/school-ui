@@ -1,0 +1,14 @@
+.input {
+  font-size: 1.6rem;
+  min-width: 300px;
+  width: 100%;
+  height: 45px;
+  padding: 9px 24px;
+  border: 1px solid rgba(22, 24, 35, 0.06);
+  border-radius: 999999px;
+  background: rgba(22, 24, 35, 0.06);
+  caret-color: var(--primary-color);
+  &.invalid {
+    border-color: var(--red-color);
+  }
+}

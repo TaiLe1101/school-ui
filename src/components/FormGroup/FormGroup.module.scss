@@ -1,43 +1,20 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
   + .wrapper {
     margin-top: 16px;
   }
-  &.valid {
-    & .input {
-      border: 1px solid red;
-      border-radius: 999999px;
-    }
-  }
 }
 
-.title {
+.label {
   margin-left: 14px;
   font-size: 1.5rem;
   font-weight: 600;
 }
-.wrapper-input {
-  background: rgba(22, 24, 35, 0.06);
-  border: 1px solid rgba(22, 24, 35, 0.06);
-  height: 45px;
-  min-width: 300px;
-  border-radius: 999999px;
-  overflow: hidden;
-}
-
-.input {
-  background-color: transparent;
-  padding: 9px 24px;
-  height: 100%;
-  width: 100%;
-  caret-color: var(--primary-color);
-  font-size: 1.6rem;
-}
-
-.error-mesage {
+.mesage {
   margin-top: 4px;
   margin-left: 12px;
   font-size: 1.4rem;
-  color: red;
+  color: var(--invalid-color);
 }
