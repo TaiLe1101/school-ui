@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './FormGroup.module.scss';
 const cx = classNames.bind(styles);
 
@@ -7,31 +7,25 @@ function FormGroup({
   placeholder,
   name,
   title,
-  mesage,
+  masage,
   type = 'text',
-  valid = false,
   onChange,
 }) {
+  const [valid, setValid] = useState(false);
   const [errMsg, setErrMsg] = useState('Vui lòng nhập trường này');
-  const [isValid, setIsValid] = useState(valid);
-
-  useEffect(() => {
-    setIsValid(valid);
-  }, [valid]);
-
   const handleValid = (e) => {
     const value = e.target.value;
     if (value.trim().length === 0) {
-      setIsValid(true);
+      setValid(true);
     } else if (value.trim().length < 6) {
-      setErrMsg(mesage);
+      setErrMsg(masage);
     } else {
-      setIsValid(false);
+      setValid(false);
     }
   };
-  const classes = cx('wrapper', { valid: isValid });
+
   return (
-    <div className={classes}>
+    <div className={cx('wrapper', { valid })}>
       <label className={cx('title')} htmlFor={name}>
         {title}
       </label>
@@ -45,7 +39,7 @@ function FormGroup({
           onBlur={handleValid}
         />
       </div>
-      {isValid && <p className={cx('error-mesage')}>{isValid && errMsg}</p>}
+      {valid && <p className={cx('error-mesage')}>{errMsg}</p>}
     </div>
   );
 }
